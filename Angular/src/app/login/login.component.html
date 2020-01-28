@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+      <div class= "col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  
+  
+            <div class="form-group" >
+              <label>Username</label>
+              <input type="text"
+                formControlName="username"
+                name="username" 
+                [(ngModel)] = "username"
+                class="form-control">
+            </div>
+            <div *ngIf="loginForm.controls['username'].hasError('required')"
+                  class="alert alert-danger">Can't Left Blank
+            </div>
+            <div *ngIf="loginForm.controls['username'].hasError('minlength')"
+                   class="alert alert-danger">Minimum 4 characters required
+            </div>
+            <div *ngIf="loginForm.controls['username'].hasError('maxlength')"
+                  class="alert alert-danger">Maximum 15 characters allowed</div>
+  
+              
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" 
+              name="password" 
+              [(ngModel)] = "password"
+              formControlName="password" 
+              class="form-control">
+            </div>
+            <div *ngIf="loginForm.controls['password'].hasError('required')"
+                  class="alert alert-danger">can't left Blank
+            </div>
+            <div *ngIf="loginForm.controls['password'].hasError('minlength')"
+                  class="alert alert-danger">min 8 characters
+            </div>
+            <div *ngIf="loginForm.controls['password'].hasError('maxlength')"
+                  class="alert alert-danger">Max 15 characters
+            </div>
+  
+  
+            <div class="form-group">
+                  <button  type="submit" class = "btn btn-primary">Log in</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
