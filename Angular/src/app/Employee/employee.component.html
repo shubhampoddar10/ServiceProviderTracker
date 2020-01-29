@@ -1,14 +1,46 @@
 <div class="container">
     <div class="row">
-        <div class= "col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form [formGroup] = 'employeeForm'>
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]='employeeForm'>
+
                 <div class="formGroup">
                     <label>FirstName</label>
-                    <input type="text"
-                    formcontrolname = "firstname"
-                    name="firstname">
-
+                    <input type="text" 
+                    formControlName="firstName" 
+                    name="firstName" 
+                    [(ngModel)]="firstName"
+                        class="form-control">
                 </div>
+                <div *ngIf="employeeForm.controls['firstName'].hasError('required')" 
+                class="alert alert-danger">Can't Left Blank
+                </div>
+            
+
+                <div class="formGroup">
+                    <label>LastName</label>
+                    <input type="text" 
+                    formControlName="lastName" 
+                    name="lastName" 
+                    [(ngModel)]="lastName"
+                        class="form-control">
+                </div>
+                <div *ngIf="employeeform.controls['lastName'].hasError('required')" 
+                class="alert alert-danger">Can't left blank
+                </div>
+
+
+                <div class="formGroup">
+                    <label>Mobile Number</label>
+                    <input type="number" 
+                    formControlName="mobileNo"
+                    name="mobileNo"
+                    [(ngModel)]="mobileNo"
+                    class="form-control">
+                </div>
+                <div *ngIf="employeeform.controls['mobileNo'].hasError('required')"
+                class="alert alert-danger">Can't left blank</div>
+
+
 
             </form>
 

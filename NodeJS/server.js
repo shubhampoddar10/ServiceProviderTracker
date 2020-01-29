@@ -102,7 +102,7 @@ app.post("/api/v1.0/serviceprovider/employee", (req, res) => {
             collection.insertOne(data, (function (err, result) {
                 if (err) {
                     console.log("getting error while filling employee details", err);
-                    res.status(500).json({ Message: "Some error occurred while inserting the data." });
+                   return res.status(500).json({ Message: "Some error occurred while inserting the data." });
                 }
 
                 res.status(200).json({
@@ -113,7 +113,7 @@ app.post("/api/v1.0/serviceprovider/employee", (req, res) => {
         }
     });
 
-    res.json({ mess: "done" });
+    //res.json({ mess: "done" });
 })
 app.listen(8080);
 console.log("server listening to port no 8080");

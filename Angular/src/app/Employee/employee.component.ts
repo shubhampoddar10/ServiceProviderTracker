@@ -13,16 +13,15 @@ export class employeeComponent {
 
     employeeForm = new FormGroup({
 
-        firstname: new FormControl(null, Validators.required),
-        lastname: new FormControl(null, Validators.required),
-        email: new FormControl(null, [Validators.required, Validators.email]),
+        firstName: new FormControl(null, Validators.required),
+        lastName: new FormControl(null, Validators.required),
+        mobileNo: new FormControl(null, Validators.required),
+        email: new FormControl(null, [Validators.required, Validators.email]),  
+        panNo: new FormControl(null, Validators.required),
+        adharNo: new FormControl(null,Validators.required),
+        adress: new FormControl(null,Validators.required),
         gender: new FormControl(null,Validators.required),
-        dob: new FormControl(null, Validators.required),
-        mobile: new FormControl(null, Validators.required),
-        panno: new FormControl(null, Validators.required),
-        password: new FormControl(null, [Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(15)])
+        qualification: new FormControl(null,Validators.required)
     })
 
 }
