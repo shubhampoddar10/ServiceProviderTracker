@@ -10,18 +10,13 @@ import { HttpErrorResponse } from '@angular/common/http';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class loginComponent implements OnInit {
-    public username = '';
-    public password = '';
+export class loginComponent  {
+    private result: any;
 
-    loginForm: FormGroup;
-    private result:any;
+    constructor(private router: Router, private service: loginService) { }
 
-    constructor(private router: Router, private service:loginService) { }
+    loginForm = new FormGroup({
 
-    ngOnInit() {
-
-        this.loginForm = new FormGroup({
             'username': new FormControl(null,
                 [Validators.required,
                 Validators.minLength(4),
@@ -31,24 +26,23 @@ export class loginComponent implements OnInit {
                 Validators.maxLength(15),
                 Validators.minLength(8)])
         });
-    };
+    
 
     onSubmit() {
         console.log(this.loginForm)
-        
-       this.service.getuserdata(this.loginForm.value).subscribe((posRes)=>{
-            this.result=posRes;
-            console.log('this.result',this.result);
+
+        this.service.getuserdata(this.loginForm.value)
+            .subscribe((posRes) => {
+            this.result = posRes;
+            console.log('this.result', this.result);
             this.router.navigate(['/home']);
-          },(errRes:HttpErrorResponse)=>{
-            if(errRes.error instanceof Error)
-            console.log("client side error");
-            else{
-                console.log("Server side error",this.result);
-                
+        }, (errRes: HttpErrorResponse) => {
+            alert("some error occured");
+            if (errRes.error instanceof Error)
+                console.log("client side error");
+            else {
+                console.log("Server side error");
             }
-          })
-          
-        
-        };
+        })
+    };
 };
