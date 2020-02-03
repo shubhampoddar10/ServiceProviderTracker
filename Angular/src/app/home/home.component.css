@@ -1,0 +1,53 @@
+/* .container {
+    margin-top: 30px;
+    margin-right: 50px;
+    
+} */
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+h1{
+    font-size: 30px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+    
+
+}
+
+a:link, a:visited {
+    background-color: blue;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+   
+     display: inline-block; 
+  }
+  
+  a:hover, a:active {
+    background-color: #f44336;
+    text-decoration: underline;
+    
+  }
+  a{
+      margin-left: 120px;
+      margin-top: 20px;
+      
+  }
+
+  .card{
+      background-color: whitesmoke;
+      border-width: thin;
+      width: 20%;
+      height: 150px;
+      
+      
+  }
+  
+  
+
+  
+  

@@ -35,7 +35,7 @@ export class loginComponent  {
             .subscribe((posRes) => {
             this.result = posRes;
             console.log('this.result', this.result);
-            this.router.navigate(['/home']);
+            this.router.navigate(['/employee']);
         }, (errRes: HttpErrorResponse) => {
             alert("some error occured");
             if (errRes.error instanceof Error)

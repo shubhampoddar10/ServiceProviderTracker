@@ -1,49 +1,191 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-            <form [formGroup]='employeeForm'>
+<!-- <a [routerLink]="['employee']">Add Employee</a> -->
 
-                <div class="formGroup">
+<!-- Form starts -->
+<form [formGroup]='employeeForm'>
+    <!-- Container Started -->
+    <div class="container card">
+        <div class="card-header">
+            Add Emlpoyee Details
+        </div>
+        <!-- Row Starts -->
+        <div class="row card-body">
+
+            <!-- col1 starts -->
+            <div class="col-md-6">
+                <!-- FirstName Div Start -->
+                <div class="formGroup" [ngClass]="{'has-error': employeeForm.get('firstName').errors &&
+          (employeeForm.get('firstName').touched || employeeForm.get('firstName').dirty)}">
                     <label>FirstName</label>
-                    <input type="text" 
-                    formControlName="firstName" 
-                    name="firstName" 
-                    [(ngModel)]="firstName"
+                    <input type="text" formControlName="firstName"  id="firstName" name="firstName" placeholder="Enter Your FirstName"
                         class="form-control">
-                </div>
-                <div *ngIf="employeeForm.controls['firstName'].hasError('required')" 
-                class="alert alert-danger">Can't Left Blank
-                </div>
-            
 
-                <div class="formGroup">
-                    <label>LastName</label>
-                    <input type="text" 
-                    formControlName="lastName" 
-                    name="lastName" 
-                    [(ngModel)]="lastName"
-                        class="form-control">
+                    <span class="help-block" *ngIf="employeeForm.get('firstName').errors &&
+          (employeeForm.get('firstName').touched || employeeForm.get('firstName').dirty)">
+
+                        <span *ngIf="employeeForm.get('firstName').errors.required" class="alert alert-danger">
+                            Please Provide Your FirstName
+                        </span>
+
+                        <span *ngIf="employeeForm.get('firstName').errors.minlength" class="alert alert-danger">
+                            Min 3 Characters required
+                        </span>
+
+                        <span *ngIf="employeeForm.get('firstName').errors.maxlength" class="alert alert-danger">
+                            Max 15 Characters required
+                        </span>
+
+                    </span>
                 </div>
-                <div *ngIf="employeeform.controls['lastName'].hasError('required')" 
-                class="alert alert-danger">Can't left blank
-                </div>
+                <!-- FirstName Div Ends -->
 
 
+                <!-- Mobile Div Start -->
                 <div class="formGroup">
                     <label>Mobile Number</label>
-                    <input type="number" 
-                    formControlName="mobileNo"
-                    name="mobileNo"
-                    [(ngModel)]="mobileNo"
-                    class="form-control">
+                    <input type="number" formControlName="mobileNo" id="lastName" name="mobileNo"
+                        placeholder="Enter Your Mobile Number" class="form-control">
+
+                    <span class="help-block" *ngIf="employeeForm.get('mobileNo').errors &&
+            (employeeForm.get('mobileNo').touched || employeeForm.get('mobileNo').dirty)">
+                        <span *ngIf="employeeForm.get('panNo').errors.required" class="alert alert-danger">
+                            Please Provide Your Mobile Number
+                        </span>
+                    </span>
                 </div>
-                <div *ngIf="employeeform.controls['mobileNo'].hasError('required')"
-                class="alert alert-danger">Can't left blank</div>
+                <!-- Mobile Div End -->
 
+                <!--Pan Div Start  -->
+                <div class="formGroup">
+                    <label>PAN Card Number</label>
+                    <input type="text" formControlName="panNo" id="panNo" name="panNo" placeholder="Enter Your PAN Number"
+                        class="form-control">
 
+                    <span class="help-block" *ngIf="employeeForm.get('panNo').errors &&
+        (employeeForm.get('panNo').touched || employeeForm.get('panNo').dirty)">
+                        <span *ngIf="employeeForm.get('panNo').errors.required" class="alert alert-danger">
+                            Please Provide Your PAN Card Number
+                        </span>
+                        <span *ngIf="employeeForm.get('panNo').errors.minlength" class="alert alert-danger">
+                            Please Provide Your PAN Card Number
+                        </span>
+                    </span>
+                </div>
+                <!-- Pan Div End -->
 
-            </form>
+                <!-- Adress Div Start -->
+                <div class="formGroup">
+                    <label>Adress</label>
+                    <textarea formControlName="adress" id="adress" name="adress" placeholder="Enter Your Adress"
+                        class="form-control"></textarea>
 
+                    <span class="help-block" *ngIf="employeeForm.get('adress').errors &&
+            (employeeForm.get('adress').touched || employeeForm.get('adress').dirty)">
+                        <span *ngIf="employeeForm.get('adress').errors.required" class="alert alert-danger">
+                            Please Provide Your Adress
+                        </span>
+                    </span>
+                </div>
+                <!-- Adress Div End -->
+
+            </div>
+            <!-- col1 ends -->
+
+            <!-- col2 starts -->
+            <div class="col-md-6">
+                <!-- LastName Div Start -->
+                <div class="formGroup">
+                    <label for="lastName ">LastName</label>
+                    <input type="text" formControlName="lastName" id="lastName" name="lastName" placeholder="Enter Your LastName"
+                        class="form-control">
+
+                    <span class="help-block" *ngIf="employeeForm.get('lastName').errors &&
+        (employeeForm.get('lastName').touched || employeeForm.get('lastName').dirty)">
+
+                        <span *ngIf="employeeForm.get('lastName').errors.required" class="alert alert-danger">
+                            Please Provide Your LastName
+                        </span>
+
+                        <span *ngIf="employeeForm.get('lastName').errors.minlength" class="alert alert-danger">
+                            Min 3 Characters required
+                        </span>
+
+                        <span *ngIf="employeeForm.get('lastName').errors.maxlength" class="alert alert-danger">
+                            Madx 15 Characters required
+                        </span>
+
+                    </span>
+                </div>
+                <!-- LastName Div End -->
+
+                <!-- Email Div Start -->
+                <div class="formGroup">
+                    <label>Email ID</label>
+                    <input type="email" formControlName="email" id="email" name="email" placeholder="Enter Your Email"
+                        class="form-control">
+
+                    <span class="help-block" *ngIf="employeeForm.get('email').errors &&
+            (employeeForm.get('email').touched || employeeForm.get('email').dirty)">
+                        <span *ngIf="employeeForm.get('firstName').errors.required" class="alert alert-danger">
+                            Please Provide Your Email
+                        </span>
+                    </span>
+                </div>
+                <!-- Email Div End -->
+
+                <!-- Adhaar Div Start -->
+                <div class="formGroup">
+                    <label>Adhaar Number</label>
+                    <input type="number" formControlName="adhaarNo" id="adhaarNo" name="adhaarNo"
+                        placeholder="Enter Your Adhaar Number" class="form-control">
+
+                    <span class="help-block" *ngIf="employeeForm.get('adhaarNo').errors &&
+                (employeeForm.get('adhaarNo').touched || employeeForm.get('adhaarNo').dirty)">
+                        <span *ngIf="employeeForm.get('panNo').errors.required" class="alert alert-danger">
+                            Please Provide Your Adhaar Card Number
+                        </span>
+                    </span>
+                </div>
+                <!-- Adhaar Div End -->
+
+                <!-- Gender Div Start -->
+                <div class="formGroup">
+                    <label>Gender</label>
+                    <select class="form-control" formControlName="gender" id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <!-- Gender Div End -->
+
+                <!-- Quali Div Start -->
+                <div class="formGroup">
+                    <label>Qualification</label>
+                    <select class="form-control" formControlName="qualification" id="qual" name="qualification">
+                        <option value="b.tech">B.Tech</option>
+                        <option value="ba">BA</option>
+                        <option value="bsc">B.Sc</option>
+                        <option value="bba">BBA</option>
+                    </select>
+                </div>
+                <!-- Quali Div End -->
+
+            </div>
+            <!-- col2 ends -->
+       
         </div>
+        <!-- Row Ends -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary addbtn" (click)=addEmployee()>Add Employee</button>
+
+            <button class="btn btn-danger logoutbtn" (click)=logout() type="submit">Logout</button>
+        </div>
+
+
     </div>
-</div>
+    <!-- Container Ends -->
+
+
+
+</form>
+<!-- Form Ends -->

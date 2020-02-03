@@ -1,0 +1,45 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+ .card{
+     margin: 10px;
+     
+     background-color: blue;
+    
+} 
+
+.container{
+    margin-top: 120px;
+}
+
+.card-header{
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: darkblue;
+    
+}
+
+input[type=text],input[type=password] {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+.loginbtn{
+    width: 100%;
+
+}
+
+label {
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+
+  }
+

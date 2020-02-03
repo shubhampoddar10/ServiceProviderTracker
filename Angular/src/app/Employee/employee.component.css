@@ -1,0 +1,15 @@
+.addbtn{
+    margin-bottom: 20px;
+    float: right;
+    margin-right: 10px;
+}
+.logoutbtn{
+    margin-bottom: 20px;
+    /* margin-left: 20px; */
+}
+.card{
+    border-width: 5px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}

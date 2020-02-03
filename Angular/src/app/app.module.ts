@@ -8,18 +8,21 @@ import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { loginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import {  employeeComponent } from './employee/employee.component';
 import { authGuard } from './auth.guards';
 import { loginService } from './login/login.service';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes : Routes =[
+  {path : '',component : HomeComponent },
   {path : 'login',component : loginComponent,canActivate:[authGuard] },
-  {path : 'home',component : HomeComponent,canDeactivate:[authGuard] }
+  {path : 'employee',component : employeeComponent,canDeactivate:[authGuard] }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     loginComponent,
+    employeeComponent,
     HomeComponent
   ],
   imports: [
